@@ -15,7 +15,7 @@
     "url": "git+https://github.com/yashaswinikb18/nodejs-hello-world.git"
   },
   "publishConfig": {
-  "registry": "https://npm.pkg.github.com/@yashaswinikb18"
+  "registry": "https://npm.pkg.github.com/"
 },
   "author": "Arpan Solanki",
   "license": "ISC",
