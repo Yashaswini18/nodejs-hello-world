@@ -2,9 +2,9 @@ name: Publish to github package
 on: [push]
 
 jobs:
-  build_and_push:
-  runs-on: ubuntu-latest
-  steps:
+  build_and_package:
+   runs-on: ubuntu-latest
+   steps:
     - name: checkout code
       uses: actions/checkout@v4
     - name: Setup Node
@@ -23,3 +23,25 @@ jobs:
         name: package
         path: '*.tgz'
   package:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    needs: [build_and_package]
+    steps:
+      - name: Download packages
+        uses: actions/download-artifact@v2
+        with:
+          name: package
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://npm.pkg.github.com/'
+          scope: '@Yashaswini18'
+      - run: echo "registry=https://npm.pkg.github.com/@Yashaswini18" >> .npmc
+      - run: npm publish $(ls *.tgz)
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          
+          
