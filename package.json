@@ -1,5 +1,5 @@
 {
-  "name": "@Yashaswini18/nodejs-hello-world",
+  "name": "@yashaswinikb18/nodejs-hello-world",
   "version": "1.0.0",
   "private": false,
   "description": "Hello World nodejs",
@@ -15,7 +15,7 @@
     "url": "git+https://github.com/solankiarpan/nodejs-hello-world.git"
   },
   "publishConfig": {
-  "registry": "https://npm.pkg.github.com/@Yashaswini18"
+  "registry": "https://npm.pkg.github.com/@yashaswinikb18"
 },
   "author": "Arpan Solanki",
   "license": "ISC",
